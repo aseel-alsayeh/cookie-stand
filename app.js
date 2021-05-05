@@ -24,7 +24,8 @@ function Shop (location , MinCust , MaxCust , AvgCocPerCust,){
     this.MinCust=MinCust;
     this.MaxCust=MaxCust;
     this.AvgCocPerCust=AvgCocPerCust;
-    this.cookies = []
+    this.cookies = [];
+    this.total=0
     ShopArray.push(this)
    }
 
@@ -37,6 +38,13 @@ function Shop (location , MinCust , MaxCust , AvgCocPerCust,){
      f = parseInt(this.AvgCocPerCust * this.randomCustHour());
      this.cookies.push(f);
      return f ;
+   }
+
+   Shop.prototype.totalco=function(){
+     
+     for(i=0;i<this.cookies.length;i++){
+       this.total += this.cookies[i];
+     }
    }
 
    let seattle = new Shop ("seattle", 23 , 65 , 6.3);
@@ -67,45 +75,59 @@ function Shop (location , MinCust , MaxCust , AvgCocPerCust,){
       
       // total at each hour
     }
+    
+  
+  
+  
+  seattle.render();
+  Tokyo.render();
+  Dubai.render();
+  Paris.render();
+  Lima.render();
+  seattle.totalco();
+  Tokyo.totalco();
+  Dubai.totalco();
+  Paris.totalco();
+  Lima.totalco();
+  
+  // footer
+  let r7El=document.createElement("tr");
+  tableEl.appendChild(r7El);
+  let thE6 = document.createElement("th");
+    r7El.appendChild(thE6);
+    thE6.textContent="total";
+    
+   
+      
+    
+    
     let cookiee = 0;
     let time1 =(time.length-1)
     for(let i=1; i<time1 ;i++){
        cookiee = 0;
-
-
+  
+  
       for (let j=0;j<ShopArray.length; j++){
         // let name=ShopArray[j].cookies
         // console.log(name)
         // console.log(ShopArray[j],i);
          cookiee += ShopArray[j].cookies[(i-1)];
-         console.log(cookiee)
-         console.log(ShopArray[j].cookies[(i-1)])
-      }
+        //  console.log(cookiee)
+        //  console.log(ShopArray[j].cookies[(i-1)])
+      } 
+      let tdE3 =document.createElement("td");
+      r7El.appendChild(tdE3);
+      tdE3.textContent=(cookiee);
+    }
+     let sum = 0
+    for (let i=0;i<ShopArray.length;i++){
+     sum = sum+ShopArray[i].total
 
     }
-
-
-    seattle.render();
-    Tokyo.render();
-    Dubai.render();
-    Paris.render();
-    Lima.render();
-    
-    
-    // footer
-    let r7El=document.createElement("tr");
-    tableEl.appendChild(r7El);
-    let thE6 = document.createElement("th");
-    r7El.appendChild(thE6);
-    thE6.textContent="total";
-    
-    for (let i=0;i<14;i++){
-    let tdE3 =document.createElement("td");
-    r7El.appendChild(tdE3);
-    tdE3.textContent=(sumArray[i]);
-  }
-    
-
+  console.log(sum)
+  let tdE4 =document.createElement("td");
+  r7El.appendChild(tdE4);
+  tdE4.textContent=(sum);
     
 console.log(ShopArray)
 
