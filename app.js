@@ -25,7 +25,7 @@ function Shop (location , MinCust , MaxCust , AvgCocPerCust,){
     this.MaxCust=MaxCust;
     this.AvgCocPerCust=AvgCocPerCust;
     this.cookies = []
-    ShopArray.push(this.cookies)
+    ShopArray.push(this)
    }
 
      Shop.prototype.randomCustHour =function () {
@@ -66,10 +66,23 @@ function Shop (location , MinCust , MaxCust , AvgCocPerCust,){
       dlTotal.textContent=(`${Total}`);
       
       // total at each hour
-      
     }
-    
-    
+    let cookiee = 0;
+    let time1 =(time.length-1)
+    for(let i=1; i<time1 ;i++){
+       cookiee = 0;
+
+
+      for (let j=0;j<ShopArray.length; j++){
+        // let name=ShopArray[j].cookies
+        // console.log(name)
+        // console.log(ShopArray[j],i);
+         cookiee += ShopArray[j].cookies[(i-1)];
+         console.log(cookiee)
+         console.log(ShopArray[j].cookies[(i-1)])
+      }
+
+    }
 
 
     seattle.render();
@@ -94,7 +107,7 @@ function Shop (location , MinCust , MaxCust , AvgCocPerCust,){
     
 
     
-
+console.log(ShopArray)
 
 
   
