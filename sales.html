@@ -16,8 +16,28 @@
     </ul>
     </nav> 
 </header>
-<main id="seattle" 
->
+<main id="seattle" >
+<h2>Purchesed cookies per hour for each Locations </h2>
+<form action="" id="branchForm">
+ <fieldset>
+<Legend> Adding a new Branch</Legend>
+<label for="location"> Location name</label>
+<input id="location"   name="loc" type="text" placeholder="location name">
+
+<label for="MinCust"> Minumum customer </label>
+<input id="MinCust"   name="min" type="number" placeholder="minumum customer">
+
+<label for="MaxCust"> Maximum customer </label>
+<input id="MaxCust"   name="max" type="number" placeholder="maxuimum customer">
+
+<label for="AvgCocPerCust">  Average number of cookies purchased per customer. </label>
+<input id="AvgCocPerCust"   name="avg" type="number" placeholder=" average number of cookies purchased per customer.">
+
+
+ </fieldset>
+ <input type="submit" value="submit">
+</form>
+
 </main>
 <script src="app.js"></script>
 </body>
