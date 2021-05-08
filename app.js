@@ -57,7 +57,8 @@ function Shop (location , MinCust , MaxCust , AvgCocPerCust,){
          // let name=ShopArray[j].cookies
         // console.log(name)
         // console.log(ShopArray[j],i);
-        sumcolumm += ShopArray[j].cookies[(i-1)];
+         sumcolumm += ShopArray[j].cookies[(i-1)];
+
         //  console.log(ShopArray[j].cookies[(i-1)])
       }   
        console.log(sumcolumm) 
@@ -65,18 +66,19 @@ function Shop (location , MinCust , MaxCust , AvgCocPerCust,){
       r7El.appendChild(tdE3);
       tdE3.textContent=(sumcolumm);
     }  
-    
-   }
-
-   Shop.prototype.footer2=function(){
-    let sum = 0
-    for (let i=0;i<ShopArray.length;i++){
-      sum = sum+ShopArray[i].total }
-      let tdE4 =document.createElement("td");
+     let sum = 0
+     for (let i=0;i<ShopArray.length;i++){
+       sum = sum+ShopArray[i].total 
+       
+    } 
+    console.log(sum)  
+    let tdE4 =document.createElement("td");
     r7El.appendChild(tdE4);
-    tdE4.textContent=(sum);
+    tdE4.textContent=(sum);}
 
-   }
+
+    
+  
    
    Shop.prototype.totalco=function(){
      
@@ -84,7 +86,7 @@ function Shop (location , MinCust , MaxCust , AvgCocPerCust,){
        this.total += this.cookies[i];
       }
     }
-    
+  
 
    let seattle = new Shop ("seattle", 23 , 65 , 6.3);
    let Tokyo = new Shop ("Tokyo", 3 , 24 , 1.2);
@@ -153,7 +155,8 @@ function Shop (location , MinCust , MaxCust , AvgCocPerCust,){
          // let name=ShopArray[j].cookies
         // console.log(name)
         // console.log(ShopArray[j],i);
-        sumcolumm += ShopArray[j].cookies[(i-1)];
+         sumcolumm += ShopArray[j].cookies[(i-1)];
+
         //  console.log(ShopArray[j].cookies[(i-1)])
       }   
        console.log(sumcolumm) 
@@ -199,8 +202,6 @@ function Shop (location , MinCust , MaxCust , AvgCocPerCust,){
       let newBranch = new Shop(location , MinCust , MaxCust , AvgCocPerCust,)
       newBranch.render();
       newBranch.footer();
-      newBranch.footer2();
-      newBranch.footer3();
       newBranch.totalco();
       
   
