@@ -1,0 +1,87 @@
+body{
+    background-image: url(https://previews.123rf.com/images/milkos/milkos1705/milkos170501484/78371704-cookies-background-sweet-chocolate-chips-biscuits-heap-at-blue-rustic-wood-background-with-copy-spac.jpg);
+        background-repeat: no-repeat;
+        background-size: cover;
+        /* background-image: url(https://static8.depositphotos.com/1020422/1049/i/950/depositphotos_10494399-stock-photo-chocolate-chip-cookies-in-a.jpg); */
+    }
+
+    header nav ul {
+        display: inline-block;
+        height: 70px;
+        line-height: 70px;
+        width: 1200px;
+        margin-left: 10px;
+        border: 2px solid blue;
+        text-decoration: none;
+        /* background-image: url(data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wCEAAkGBw0HBwcHBw0HBwcGBw0HBwcHBw8NCQcNFhEZHiARFRMYKDQgGB80Hh0fLTEtJikrLi4yIx8zOD8uNytCL0ABCgoKDg0NDg0NFTcZHxktKysrKysrKysrLSsrKysrKystKysrKy0tLSsrKysrKystNy0rKysrKysrKysrKysrK//AABEIAKgBLAMBIgACEQEDEQH/xAAXAAEBAQEAAAAAAAAAAAAAAAABAgAF/8QAHRABAQEAAgIDAAAAAAAAAAAAABEBITECUUFxkf/EABkBAQEBAQEBAAAAAAAAAAAAAAECBQAHBv/EABURAQEAAAAAAAAAAAAAAAAAAAAR/9oADAMBAAIRAxEAPwDtszPOH27MzRzmYwx0dUwxUMMFTDDDDBRGioYqCphio0VBRDDDDE1MMVDFQVMMVGhgohhhioKmGKhhgqYYqGGCphio0VBUwxUMMTUwxUMVBUwxUaKgojRUMMFTDFQxUFcKGKhjIjRqYYqNFQUQwwwwVMMVDFRNTDDDDBRGioYqCphioYYKmGKhioKmNFxoYKmGKhioKmGKhhiamGKjRUFEaKhhgqYYqGKgqYYYYYKI0VDFRNTDFQwwVMMVGioKI0VDDBXDjRUMZMaNTDFQxUFTDFRoYKIYYYqCphioYYKmGKhiomphhhhgojRUMVBUwxUMMFTDDDFQVMMVDDBUwxUMVE1MMVGhgqYYqGKgqYYqGGCphioYqCphio0MFEaKhioKmGKjQxNcOGKjRkxo0RoqGGCphioYqCphioYYKmGKjRUFTDFQwwVMMVDFQVMMMMMTUwxUMVBUwxUMMFTDFRoqCiGGGGCphioYqCphioYYKmGGGKiamGKhhgqYYqNFQURoqGGCphioYqCuFDFQxkxo1MMVDDBUwwwxUFEaKhhiamGKjRUFEMMMMFTDFQxUFTDFQwwVMMVGioKI0VDDBUwxUMVE1MMVGhgojRUMVBUwxUMMFTDFQxUFTDDDDBUwxUMVE1MMVDDBUwxUaKgrhxoqGMiNGphioYqCphioYYKmNFxoqCphioYYKmGKhioKmGKhhiamGGGKgqYYqGGCphhhioKI0VDDBUwxUMVE1MMVGhgojRUMVBUwxUMMFTDFQxUFTDDDDBUwxUMVBUwxUaKia4cMVDGRGlUwwwxUTRGioYYKmGKhioKmGKjQwURoqGKgqYYqGGCphhhiomphioYYKmGKhioKmGKhhgqY0VDFQVMMVDDBUwxUaKgohhhhiamGKhioKmGKhhgqYYYYqCphioYYK4UMVDGTGjUwxUMMFTDFRoqCiNFQxUTUwxUMMFTDFRoYKI0VDFQVMMVDDBUwxUMVBUwwwwwVMMVDFRNTDDDFQURoqGGCphioYqCphioYYKmGKjRUFTDFQwwVMMVDFRNTDFRoYK4cMMMZMaNTDFQwwVMMVDFQVMMMMMFEaKhioKmGKhhgqYYqNFRNEMMMMFTDFQxUFTDFQwwVMMMMVBUwxUMMFTDFQxUTUwxUaGCiNFQxUFTDFQwwVMMMMVBRGioYYKmGKjRUTXDhioYyI0qmGKhiompjRUMMFTDFQxUFTDDDFQURoqGGCphioYqCphio0MTRDDDFQVMMVDDBUwxUMVBUwwwwwVMMVDFQVMMVDDBUwxUaKiamGKhhgqYYqGKgqYYWMFELM5zjRozMqNEwxmMSYYzKgaGMxgMMLKgaGBjAqNGZUBhjMYDDGZUSYYzGAxozKgphjMYDDGZUS0MLGBoYzKgMZmc5h57uSe+eKzOc129Z9pzfLZxnPxu9Fi5rvrO/xWdc8aGc5//Z); */
+        background-repeat: no-repeat;
+        background-size: 1250px;
+        background-color: #FCF0C9
+    }
+    header nav ul li {display:inline-block ;
+        height: 70px;
+        line-height: 120px;
+        margin-right: 70px;
+        margin-left: 70 px ;
+    }
+    
+    header nav ul li a {
+       line-height: 70px;
+       position: relative;
+        bottom: 25px;
+        text-decoration: none;
+        color: cornsilk;
+        font-family: 'Lobster', cursive ;
+    }
+    header nav {
+        display: inline-block;
+        width:1050px;
+        height: 120 px;
+        margin-bottom: 25px;}
+
+    
+
+ fieldset {
+     background-color: rgb(245, 245, 153)
+     
+ }
+
+ table{
+     margin-top: 30px;
+     margin-left: 120px;
+     background-color: rgb(221, 221, 90);
+     border: 1px dotted rgb(0, 119, 255);
+ }
+
+ td{
+     border: 1px solid rgb(0, 119, 255);
+     text-align: center;
+     color:white;
+ }
+
+ th{
+ border-top: 0.5px solid black ;
+ }
+
+ legend{
+    font-family: 'Handlee', cursive;
+    font-size: 30px;
+    text-align: center;
+ }
+
+ h2{
+     text-align: center;
+ }
+
+ form {
+     width: 1200px;
+     padding-left: 30px;
+ }
+
+ sub{
+      margin: 0;
+      position: absolute;
+      top: 50%;
+      -ms-transform: translateY(-50%);
+      transform: translateY(-50%);
+ }
