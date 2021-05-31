@@ -1,209 +1,112 @@
 `Use strict`
-let time = ["     " ,"6:00am " , "7:00am " , "8:00am " , "9:00am " , "10:00am " , "11:00am " , "12:00pm", "1:00pm" ,"2:00pm" , "3:00pm", "4:00pm", "5:00pm", "6:00pm", "7:00pm" , "Daily Location Total"]
-let mainEl = document.getElementById("seattle");
-//  let h1El = document.createElement("h1");
-//  h1El.textContent =`${this.loction}`
-//  mainEl.appendChild(h1El);
-let tableEl = document.createElement("table");
-mainEl.appendChild(tableEl);
-let head = document.createElement("tr");
-tableEl.appendChild(head);
-for (let i=0; i<=15; i++){
-   let tdEl = document.createElement("td");
-   tdEl.textContent= time[i] ;
-   head.appendChild(tdEl);}
+//create the header of the table 
+let times = ['6am', '7am', '8am', '9am', '10am', '11am', '12pm', '1pm', '2pm', '3pm', '4pm', '5pm', '6pm', '7pm'];
+let locations = ['Seattle', 'Tokyo', 'Dubai', 'Paris', 'Lima']
+// Create the table 
+let placeEl = document.getElementById('seattle');
+let tableEl = document.createElement('table');
+placeEl.appendChild(tableEl);
+let thfEl = document.createElement('th')
+tableEl.appendChild(thfEl);
+thfEl.textContent = '';
 
-   // constructor
-   
- 
-let arr =[];
-let sumArray=[];
-let ShopArray=[];
-function Shop (location , MinCust , MaxCust , AvgCocPerCust,){
-    this.loction= location;
-    this.MinCust=MinCust;
-    this.MaxCust=MaxCust;
-    this.AvgCocPerCust=AvgCocPerCust;
-    this.cookies = [];
-    this.total=0
-    ShopArray.push(this)
-   }
+for (let index = 0; index < times.length; index++) {
+  let thEl = document.createElement('th');
+  tableEl.appendChild(thEl);
+  thEl.textContent = times[index];
+}
+let thtEl=document.createElement('th')
+tableEl.appendChild(thtEl);
+  thtEl.textContent = 'daily location total';
 
-     Shop.prototype.randomCustHour =function () {
-       
-       return Math.random() * (this.MaxCust - this.MinCust + 1) + this.MinCust; //The maximum is inclusive and the minimum is inclusive
-      } 
+// create the constructor
+let dataArray = [];
+let cookies = [];
+function Shop(location, minCust, maxCust, AvgCookies) {
+  this.location = location;
+  this.minCust = minCust;
+  this.maxCust = maxCust;
+  this.AvgCookies = AvgCookies;
+  dataArray.push(this);
+}
+//fill the constructor
+// let seattle = new Shop("seattle", 23, 65, 6.3);
+// let Tokyo = new Shop("Tokyo", 3, 24, 1.2);
+// let Dubai = new Shop("Dubai", 11, 38, 3.7);
+// let Paris = new Shop("Paris", 20, 38, 2.3);
+// let Lima = new Shop("Lima", 2, 16, 4.6);
+
+// generate a random number of customers per hour.
+Shop.prototype.randomNum = function () { 
+  return Math.random() * (this.maxCust - this.minCust ) + this.minCust;
+ }
+
+Shop.prototype.cookiesPurch = function () {
+  let r = parseInt(this.AvgCookies * this.randomNum());
+  cookies.push(this);
+  return r
+}
+// fill the table 
+
+Shop.prototype.render = function () {
+  // tableEl.textContent='';
+   let trEl = document.createElement('tr');
+  tableEl.appendChild(trEl);
+  let tdfEl = document.createElement('td');
+  trEl.appendChild(tdfEl)
+  tdfEl.textContent = `${this.location}`;
+  let total1=0;
+  for (let index = 0; index < times.length; index++) {
+    let tdEl = document.createElement('td');
+    trEl.appendChild(tdEl)
+    tdEl.textContent =this.cookiesPurch();
+    total1=total1+ parseInt(tdEl.textContent);
+  }
+  
+let tdtoEl=document.createElement('td');
+trEl.appendChild(tdtoEl);
+tdtoEl.textContent = total1;
+
+
+}
+// call the functions
+// seattle.render();
+// Tokyo.render();
+// active the submit in the form 
+let branchFormEl=document.getElementById('branchForm');
+branchFormEl.addEventListener('submit', handle)
+function handle(event){
+  event.preventDefault();
+  let location = event.target.loc.value;
+  let minCust=event.target.min.value;
+  let maxCust=event.target.max.value;
+  let AvgCookies= event.target.avg.value;
+  let newObj= new Shop(location,minCust,maxCust,AvgCookies)
+  setitems()
+  newObj.render()
+}
+// set the data in loal storage
+function setitems(){
+  let data =JSON.stringify(dataArray);
+  localStorage.setItem('Shop',data);
+
+}
+
+function getitems(){
+  let st=localStorage.getItem('Shop');
+  let nor=JSON.parse(st);
+  console.log(nor)
+  let obj;
+  if (nor !== null){
+    for (let index=0; index<nor.length ; index++){
+
+      obj = new Shop (nor[index].location , nor[index].minCust , nor[index].maxCust , nor[index].AvgCookies); 
+      console.log(obj)
       
-      Shop.prototype.CockPurshHour = function(){
-        f = parseInt(this.AvgCocPerCust * this.randomCustHour());
-        this.cookies.push(f);
-        return f ;
-   }
-
-   Shop.prototype.footer= function(){
-    let r7El=document.createElement("tr");
-    tableEl.appendChild(r7El);
-    let thE6 = document.createElement("th");
-      r7El.appendChild(thE6);
-      thE6.textContent="total";
-
-      let sumcolumm = 0;
-    let time1 =(time.length-1)
-    for(let i=1; i<time1 ;i++){
-       sumcolumn = 0;
-       
-  
-       for (let j=0;j<ShopArray.length; j++){
-         // let name=ShopArray[j].cookies
-        // console.log(name)
-        // console.log(ShopArray[j],i);
-         sumcolumm += ShopArray[j].cookies[(i-1)];
-
-        //  console.log(ShopArray[j].cookies[(i-1)])
-      }   
-       console.log(sumcolumm) 
-      let tdE3 =document.createElement("td");
-      r7El.appendChild(tdE3);
-      tdE3.textContent=(sumcolumm);
-    }  
-     let sum = 0
-     for (let i=0;i<ShopArray.length;i++){
-       sum = sum+ShopArray[i].total 
-       
-    } 
-    console.log(sum)  
-    let tdE4 =document.createElement("td");
-    r7El.appendChild(tdE4);
-    tdE4.textContent=(sum);}
-
-
-    
-  
-   
-   Shop.prototype.totalco=function(){
-     
-     for(i=0;i<this.cookies.length;i++){
-       this.total += this.cookies[i];
-      }
+      obj.render();
     }
-  
+  }
 
-   let seattle = new Shop ("seattle", 23 , 65 , 6.3);
-   let Tokyo = new Shop ("Tokyo", 3 , 24 , 1.2);
-   let Dubai = new Shop ("Dubai", 11 , 38 , 3.7);
-   let Paris = new Shop ("Paris", 20 , 38 , 2.3);
-   let Lima = new Shop ("Lima", 2 , 16 , 4.6);
-
-   
-   
-   Shop.prototype.render = function(){   
-     let r2El = document.createElement("tr");
-     tableEl.appendChild(r2El);
-     let thEl = document.createElement("th");
-     r2El.appendChild(thEl);
-     thEl.textContent= this.loction;
-     let Total= 0;
-     for(let i=0; i<14 ; i++){
-       let tdE2 = document.createElement("td");
-       r2El.appendChild(tdE2);
-       tdE2.textContent=`${this.CockPurshHour()}`;
-       Total = Total + this.cookies[i];
-      }  
-      //console.log(Total);
-      let dlTotal =document.createElement("td");
-      r2El.appendChild(dlTotal);
-      dlTotal.textContent=(`${Total}`);
-      // dlTotal.textContent=(ShopArray[i].total); 
-      
-      
-      
-    }  
-    
-    
-    
-    seattle.render();
-    Tokyo.render();
-    Dubai.render();  
-    Paris.render();
-    Lima.render();
-    seattle.totalco();
-    Tokyo.totalco();
-    Dubai.totalco();
-    Paris.totalco();
-    Lima.totalco();
-  
-  
-  
-  
-  
-  // footer   
-  
-
-    let r7El=document.createElement("tr");
-    tableEl.appendChild(r7El);
-    let thE6 = document.createElement("th");
-      r7El.appendChild(thE6);
-      thE6.textContent="total";
-
-      let sumcolumm = 0;
-    let time1 =(time.length-1)
-    for(let i=1; i<time1 ;i++){
-       sumcolumn = 0;
-       
-  
-       for (let j=0;j<ShopArray.length; j++){
-         // let name=ShopArray[j].cookies
-        // console.log(name)
-        // console.log(ShopArray[j],i);
-         sumcolumm += ShopArray[j].cookies[(i-1)];
-
-        //  console.log(ShopArray[j].cookies[(i-1)])
-      }   
-       console.log(sumcolumm) 
-      let tdE3 =document.createElement("td");
-      r7El.appendChild(tdE3);
-      tdE3.textContent=(sumcolumm);
-    }  
-     let sum = 0
-     for (let i=0;i<ShopArray.length;i++){
-       sum = sum+ShopArray[i].total 
-       
-    } 
-    console.log(sum)  
-    let tdE4 =document.createElement("td");
-    r7El.appendChild(tdE4);
-    tdE4.textContent=(sum);
-
-
-  
-
-
-
-
-  
-    
-
-    
-    
-    let branchForm = document.getElementById('branchForm')
-    branchForm.addEventListener('submit', addABranch);
-    
-    function addABranch(event){
-      event.preventDefault();
-      let location = event.target.loc.value;
-      let MinCust = event.target.min.value;
-      let MaxCust = event.target.max.value;
-      let AvgCocPerCust = event.target.avg.value;
-      
-       tableEl.removeChild(tableEl.lastChild);
-
-      
-      
-      let newBranch = new Shop(location , MinCust , MaxCust , AvgCocPerCust,)
-      newBranch.render();
-      newBranch.footer();
-      newBranch.totalco();
-      
-  
-    }
-    
+}
+getitems()
+console.log(dataArray)
